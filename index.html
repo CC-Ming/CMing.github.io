@@ -145,6 +145,273 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/06/04/%E8%AE%A1%E7%BB%84/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="CMing">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CMing's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/06/04/%E8%AE%A1%E7%BB%84/" class="post-title-link" itemprop="url">未命名</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-06-04 16:27:35" itemprop="dateCreated datePublished" datetime="2024-06-04T16:27:35+08:00">2024-06-04</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-06-11 09:32:13" itemprop="dateModified" datetime="2024-06-11T09:32:13+08:00">2024-06-11</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="计算机系统概述">计算机系统概述</h1>
+<ol type="1">
+<li><p>冯·诺依曼机的特点</p>
+<ul>
+<li>计算机由五大部件组成：运算器、控制器、存储器、输入设备、输出设备</li>
+<li>指令和数据以同等地位存于存储器，可按地址寻访<br>
+</li>
+<li>指令和数据用二进制表示<br>
+</li>
+<li>指令由操作码和地址码组成<br>
+</li>
+<li>存储程序<br>
+</li>
+<li>以运算器为中心（现代计算机以存储器为中心）<br>
+</li>
+</ul></li>
+<li><p><span class="math inline">\(1\)</span> 字节(<em>Byte</em>) =
+<span class="math inline">\(8\)</span> 比特(<em>bit</em>) 即 <span class="math inline">\(1B\)</span> = <span class="math inline">\(8b\)</span></p></li>
+<li><p>在存储容量中：<span class="math inline">\(1K = 2^{10}, 1M =
+2^{20}, 1G = 2^{30}, 1T = 2^{40}\)</span><br>
+与时间相关中：<span class="math inline">\(1K = 10^3, 1M = 10^6, 1G =
+10^9, 1T = 10^{12}\)</span><br>
+<span class="math inline">\(1s = 10^3ms, 1ms = 10^3us, 1us = 10^3ns, 1ns
+= 10^3ps\)</span></p></li>
+<li><p>以运算速度衡量机器的运行速度：FLOPS: 每秒执行的浮点运算次数 =
+程序中的浮点运算次数/执行时间</p>
+<p>以机器主频衡量机器的运行速度：主频 = <span class="math inline">\(\frac{1}{\text{主时钟周期}}\)</span> （<span class="math inline">\(1.5\)</span> GHz指 <span class="math inline">\(1\)</span> 秒内有 <span class="math inline">\(1.5\)</span> G <span class="math inline">\(=1.5
+\times 10^9\)</span> 个时钟周期，所以一个时钟周期的时间是 <span class="math inline">\(\frac{1}{1.5G}\)</span> 秒</p>
+<p>以指令执行速度衡量机器的运行速度：CPI：执行一条指令所需要的平均时钟周期数，即CPI
+= <span class="math inline">\(\frac{\text{执行程序所需要的时钟周期数}}{\text{程序中指令的条数}}\)</span><br>
+平均指令周期：平均执行一条指令的时间 = CPI <span class="math inline">\(\times\)</span> 时钟周期 = CPI / 主频<br>
+MIPS：每秒内执行指令的平均条数（以百万为单位）</p>
+<p>以基准测试程序评价计算机的性能</p></li>
+</ol>
+<h1 id="信息表示">信息表示</h1>
+<ol type="1">
+<li><p>C数据类型隐式转换：低精度向高精度转换：精度由低到高依次是：short、int、long；float、double<br>
+无符号和有符号整数混合运算，按无符号整数运算<br>
+短字长转换为长字长：无符号高位扩展 <span class="math inline">\(0\)</span>，有符号高位扩展符号位<br>
+长字长转换为短字长：截断，取低位</p></li>
+<li><p>R进制数 <span class="math inline">\(\Rightarrow\)</span>
+十进制：按权展开相加： <span class="math inline">\(D=d_n\times R^n +
+\dots +d_0\times R^0 + d_{-1}\times R ^{-1} + \dots + d_{-m}\times
+R^{-m}\)</span><br>
+十进制数 <span class="math inline">\(\Rightarrow\)</span> R进制数：</p>
+<ul>
+<li>整数部分 除基数（R）取余<br>
+</li>
+<li>小数部分 乘基数（R）取整<br>
+</li>
+<li>先取到的都是靠近小数点的</li>
+</ul>
+<p>二进制数、八进制数、十六进制数之间的转换：</p>
+<ul>
+<li>以小数点为界，分别向左、向右分组，不足的位数补 <span class="math inline">\(0\)</span></li>
+<li>整数部分将 <span class="math inline">\(0\)</span>
+补在数的左侧，小数部分将 <span class="math inline">\(0\)</span>
+补在数的右侧</li>
+<li>二进制转八进制：三位为一组</li>
+<li>二进制转十六进制：四位为一组</li>
+</ul></li>
+<li><p>定点数: 小数点固定在某个位置上的数（隐含约定）</p>
+<ul>
+<li>定点整数（小数点约定在最低位的右边，最高位为符号位：<span class="math inline">\(X_{n-1} X_{n-2} \cdots X_0\ .\)</span><br>
+</li>
+<li>定点小数（最高位为符号位，小数点约定在符号位的右边：<span class="math inline">\(X_{n-1}\ . \ X_{n-2} \cdots X_0\)</span></li>
+</ul>
+<p>浮点数: 小数点位置可浮动的数<br>
+规格化浮点数：真值的尾数部分最高位是非 <span class="math inline">\(0\)</span> 数字</p>
+<ul>
+<li>左规：尾数每左移一次，阶码相应减 <span class="math inline">\(1\)</span></li>
+<li>右规：尾数每右移一次，阶码相应加 <span class="math inline">\(1\)</span></li>
+</ul>
+<p>IEEE754：单精度： <span class="math inline">\(1\)</span> 位符号位
+<span class="math inline">\(S\)</span>，<span class="math inline">\(8\)</span> 位阶码 <span class="math inline">\(E\)</span>（移码表示）, <span class="math inline">\(23\)</span> 位尾数 <span class="math inline">\(M\)</span>（原码表示）<span class="math inline">\(= (-1)^S \times (1.M) \times 2 ^{E -
+127}\)</span><br>
+阶码<span class="math inline">\(-127 \iff\)</span> 阶码 <span class="math inline">\(-128 + 1\)</span>，而 <span class="math inline">\(128\)</span> 是 <span class="math inline">\(2^7\)</span><br>
+尾数计算的时候记得恢复约定的 <span class="math inline">\(1\)</span></p></li>
+<li><p>真值原码反码补码的转换</p>
+<figure>
+<img src="../../images/真值原码转换.png" alt="图 0">
+<figcaption aria-hidden="true">图 0</figcaption>
+</figure>
+<p>无符号定点整数的表示范围： <span class="math inline">\(0 \le X \le
+2^{n－1}\)</span><br>
+有符号定点整数的表示范围:</p>
+<ul>
+<li>原码：<span class="math inline">\(-(2^{n-1} - 1) \le X \le
+2^{n-1}-1\)</span><br>
+</li>
+<li>反码：<span class="math inline">\(-(2^{n-1} - 1) \le X \le
+2^{n-1}-1\)</span></li>
+<li>补码：<span class="math inline">\(-2^{n-1} \le X \le
+2^{n-1}-1\)</span><br>
+</li>
+<li>移码：<span class="math inline">\(-2^{n-1} \le X \le
+2^{n-1}-1\)</span></li>
+</ul>
+<p>负数的补码比原码多一种数码组合。因此，不能用取反加1的方法对 <span class="math inline">\((100 \dots 00)\)</span>
+补求原码，但可以从定义式求真值，为 <span class="math inline">\(-2^{n -
+1}\)</span></p></li>
+<li><p>小端方式（Little
+endian）：高字节存入高地址单元，低字节存入低地址单元（注意是存在低地址的内容写在前面）<br>
+大端方式（Big
+endian）：高字节存入低地址单元，低字节存入高地址单元</p></li>
+</ol>
+<h1 id="运算方法与运算器">运算方法与运算器</h1>
+<ol type="1">
+<li><p>补码加法：<span class="math inline">\([X+Y]_补 = [X]_补＋
+[Y]_补\)</span><br>
+补码减法：<span class="math inline">\([X-Y]_补 = [X]_补＋ [-Y]_补 =
+[X]_补-[Y]_补\)</span><br>
+求补公式：<span class="math inline">\([-Y]_补 = \overline{[]_补} +
+1\)</span> 即：对 <span class="math inline">\([Y]\)</span>
+补逐位取反（包括符号位在内）, 末位加 <span class="math inline">\(1\)</span><br>
+</p></li>
+<li><p>运算结果的特征标志：<br>
+SF（Sign Flag）符号标志，SF＝1（0）表示结果为负数（正数）<br>
+ZF（Zero Flag）零标志， ZF＝1（0）表示结果为零（非零）<br>
+OF（Overflow Flag）溢出标志 OF＝1（0） 表示结果溢出（无溢出）<br>
+CF（Carry Flag）进位/借位标志 CF＝1 （0）表示有（无）进位/借位</p>
+<p>CF：无符号数运算结果是否超出范围，运算结果仍然正确<br>
+OF：有符号数运算结果是否超出范围，运算结果已经不正确</p>
+<p>溢出判断方法：</p>
+<ul>
+<li>当两加数同号，但和的符号不同时，则溢出<br>
+设 <span class="math inline">\(A_{n-1}、B_{n-1}、S_{n-1}\)</span>
+分别表示被加数、加数、和的符号，则 <span class="math inline">\(OF =
+A_{n-1} \cdot B_{n-1} \cdot \overline{S_{n-1}} + \overline{A_{n - 1}}
+\cdot \overline{B_{n - 1}} \cdot S_{n-1}\)</span><br>
+</li>
+<li>进位判断法：<span class="math inline">\(OF = C_n \oplus
+C_{n-1}\)</span><br>
+</li>
+<li>变形补码（双符号位）判断法：溢出——双符号位不同，不溢出——双符号位相同，即
+<span class="math inline">\(OF=S_{f1} \oplus S_{f2}\)</span></li>
+</ul>
+<p>对于无符号数的减法运算，转换为加法后，其借位是运算产生的进位 <span class="math inline">\(C_n\)</span> 的反，即 <span class="math inline">\(CF=C_n \oplus mode\)</span></p></li>
+<li><p>移位运算：</p>
+<figure>
+<img src="../../images/移位运算.png" alt="图 1">
+<figcaption aria-hidden="true">图 1</figcaption>
+</figure></li>
+<li><p>原码一位乘法：<br>
+1）积的符号位由两乘数的符号位异或得到<br>
+2）积的原码数值部分由两乘数原码数值部分相乘得到<br>
+3）将积的符号与积的数值拼接就得到积的原码</p></li>
+<li><p>原码加减交替除法：<br>
+1）若余数 <span class="math inline">\(\ge 0\)</span>，上商
+"1"，余数左移一位，减除数<br>
+2）若余数 <span class="math inline">\(&lt; 0\)</span>，上商
+"0"，余数左移一位，加除数<br>
+3）因为运算过程中有左移，需采用双符号位</p></li>
+</ol>
+<h1 id="存储系统">存储系统</h1>
+<ol type="1">
+<li><p>存储容量：以位（b）或字节（B）为单位，如：<span class="math inline">\(64KB\)</span><br>
+用存储单元数乘以存储单元字长，如：<span class="math inline">\(64K \times
+8\)</span></p></li>
+<li><p>层次化存储系统：寄存器、高速缓存、主存、辅助存储器<br>
+实现前提：程序局部性原理<br>
+相邻层次之间的传送单位：数据块<br>
+遵循原则：包含性（上层为下层的副本）、一致性（同一数据在不同层应保持一致）</p></li>
+<li><p>随机存取存储器（RAM）：<br>
+|特点|SRAM（静态存储器）|DRAM（动态存储器）| |:--:|:--:|:--:|
+|存储信息|触发器|电容| |破坏性读出|不是|是| |刷新|不需要|需要|
+|送行列地址|同时送|分两次送（地址线减半）| |运行速度|快|慢
+|集成度|低|高| |存储成本|高|低| |主要用途|高速缓存|主存</p>
+<p>只读存储器（ROM）：ROM、PROM、EPROM、EEPROM；闪存（Flash
+ROM，用作BIOS）</p>
+<p>RAM和ROM都采用<strong>随机存取</strong>的方式，而随机存取存储器是指RAM</p>
+<p>DRAM刷新：</p>
+<ul>
+<li>集中刷新：在数据丢失之前集中刷新所有行，控制简单，速度快，但存在死区</li>
+<li>分散刷新：各刷新周期分散安排在存取周期中，不存在死区</li>
+<li>异步刷新：各刷新周期分散安排在最大刷新间隔内，缩短了死区</li>
+</ul>
+<figure>
+<img src="../../images/DRAM.png" alt="图 3">
+<figcaption aria-hidden="true">图 3</figcaption>
+</figure></li>
+<li><p>位扩展（字长扩展）：将多个存储芯片的地址端、片选端和读写控制端相应并联，数据端分别引出，相互独立，各芯片并行工作<br>
+字扩展：将芯片的地址端、片选端和读写控制端相应并联，由片选信号来区分各芯片的地址范围（高地址进行译码作为片选信号），数据线并联，同一时间仅有一个芯片在工作<br>
+字位同时扩展：首先位扩展，后字扩展</p></li>
+<li><p>磁盘的操作流程：所有磁头同步寻道（由柱面号控制）（移动臂）→
+选择磁头（由磁头号控制） →
+被选中磁头等待扇区到达磁头下方（由扇区号控制）（磁盘旋转） →
+读写该扇区中数据</p>
+<p>磁盘平均存取时间 = 平均定位时间（平均寻道时间 + 平均旋转等待时间）+
+数据传输时间<br>
+平均寻道时间与磁头移动速度和盘径有关，（最大寻道时间＋最小寻道时间）<span class="math inline">\(/2\)</span>，即磁头从 <span class="math inline">\(0\)</span> 磁道移动到一半位置的时间<br>
+平均旋转等待时间与磁盘转速有关，用磁盘旋转半周所需的时间来表示<br>
+数据传输时间：磁盘旋转一周时间 <span class="math inline">\(/\)</span>
+每个磁道扇区数</p>
+<p>道密度：沿磁盘半径方向单位长度上的磁道数，单位：道/mm或道/英寸（TPI：track
+per inch）<br>
+位密度：沿磁道圆周方向单位长度上所能记录的二进制位数，单位：位/mm，或位/英寸（BPI）<br>
+对各个不同半径的磁道、记录的信息量是相同的，故磁道内圈位密度高，外圈位密度低，位密度以<strong>内圈</strong>为准</p></li>
+<li><p>Cache地址映像:<br>
+直接映像(Direct)： 每个主存块映像到Cache的固定行<br>
+全相联(Full Associate)：每个主存块映像到Cache的任一行<br>
+组相联(Set Associate)：每个主存块映像到Cache固定组中任一行</p></li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2024/05/18/test/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -740,7 +1007,7 @@ m)\)</span></h2>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-count">4</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
